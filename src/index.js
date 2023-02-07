@@ -13,3 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+const toyCollection = document.querySelector("#toy-collection")
+
+
+function addNewToys() {
+  fetch('http://localhost:3000/toys')
+  .then(response => response.json())
+  .then(data => renderToys(data))
+}
+addNewToys();
+
+function renderToys(toys) {
+  const divElement = document.createElement('div');
+  divElement.classList.add("card");
+  toyCollection.append(divElement);
+  
+  console.log(divElement);
+}
